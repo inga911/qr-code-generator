@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR code generator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+      integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>Get your QR code</header>
+    <main>
+      <form id="qr-form">
+        <input
+          type="url"
+          id="url"
+          placeholder="Enter a URL"
+          required
+          oninvalid="this.setCustomValidity(`Please enter the URL &#x1F609;`)"
+          oninput="this.setCustomValidity('')"
+        />
+
+        <label for="fize">Choose qr size</label>
+        <select id="size">
+          <option value="50">50x50</option>
+          <option value="100">100x100</option>
+          <option value="200">200x200</option>
+          <option value="300" selected>300x300</option>
+          <option value="400">400x400</option>
+          <option value="500">500x500</option>
+          <option value="600">600x600</option>
+          <option value="700">700x700</option>
+        </select>
+
+        <button type="submit" class="generate-btn">Generate QR code</button>
+      </form>
+      <div id="generated-code">
+        <div id="loader-wrapper">
+          <div class="spinner" id="loader" role="status"></div>
+        </div>
+        <div id="qrcode"></div>
+      </div>
+    </main>
+  </body>
+</html>
